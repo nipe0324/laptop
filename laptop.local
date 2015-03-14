@@ -1,0 +1,54 @@
+#!/bin/sh
+
+brew_tap "caskroom/cask"
+brew_install_or_upgrade 'brew-cask'
+
+brew_install_or_upgrade "java"
+brew_install_or_upgrade "tree"
+
+brew cask install google-chrome
+brew cask install google-drive
+brew cask install sublime-text
+brew cask install totalterminal
+brew cask install evernote
+brew cask install slack
+
+# Rails
+# ----------------------------
+gem install bundler --no-ri --no-rdoc
+gem install rails --no-ri --no-rdoc
+gem install dotenv --no-ri --no-rdoc
+rbenv rehash
+
+# Chef
+# ----------------------------
+gem install chef --no-ri --no-rdoc
+knife configure
+# knife-solo
+gem install knife-solo --no-ri --no-rdoc
+# berkhelf
+gem install berkshelf --no-ri --no-rdoc
+# nokogiri
+brew tap homebrew/dupes
+brew install libxml2 libxslt libiconv
+brew link libxml2 --force
+brew link libxslt --force
+gem install nokogiri -- --use-system-libraries --with-iconv-dir="$(brew --prefix libiconv)" --with-xml2-config="$(brew --prefix libxml2)/bin/xml2-config" --with-xslt-config="$(brew --prefix libxslt)/bin/xslt-config"
+
+# Vagrant, virtualbox
+# --------------------------
+brew cask install vagrant
+brew cask install virtualbox
+NOKOGIRI_USE_SYSTEM_LIBRARIES=1 vagrant plugin install vagrant-omnibus
+vagrant plugin install vagrant-aws
+vagrant plugin install dotenv
+vagrant plugin install vagrant-vbguest
+#vagrant vbguest
+
+
+# Manualy
+# --------------------------
+echo 'Install manualy below apps'
+echo ' + Line'
+echo ' + JPEGmini Lite'
+echo ' + Sublime Inital Settings'
