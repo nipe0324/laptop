@@ -1,17 +1,25 @@
 #!/bin/sh
 
-brew_tap "caskroom/cask"
-brew_install_or_upgrade 'brew-cask'
+# Tools
+# ----------------------------
+# brew_tap "caskroom/cask"
+brew tap caskroom/cask
+# brew_install_or_upgrade 'brew-cask'
+brew install brew-cask
 
-brew_install_or_upgrade "java"
-brew_install_or_upgrade "tree"
+#brew_install_or_upgrade "java"
+#brew_install_or_upgrade "tree"
+brew install tree
 
-brew cask install google-chrome
-brew cask install google-drive
-brew cask install sublime-text
-brew cask install totalterminal
+# brew cask install google-chrome
+brew install google-drive
+brew install dropbox
+#brew cask install google-drive
+#brew cask install sublime-text
+#brew cask install totalterminal
 brew cask install evernote
 brew cask install slack
+brew cask install dash
 
 # Rails
 # ----------------------------
@@ -52,3 +60,5 @@ echo 'Install manualy below apps'
 echo ' + Line'
 echo ' + JPEGmini Lite'
 echo ' + Sublime Inital Settings'
+echo ' + xcode'
+echo ' + brew install macvim --with-cscope --with-lua --override-system-vim'
